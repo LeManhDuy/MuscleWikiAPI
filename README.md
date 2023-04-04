@@ -31,9 +31,11 @@ GET /exercises/int:exercise_id
 This API has been deployed to Vercel at `https://workoutapi.vercel.app/`. To deploy the API to your own Vercel account, follow these steps:
 
 1. Clone the repository to your local machine.
-2. Create a new Vercel project and link it to the repository.
-3. Configure the required environment variables (if any).
-4. Deploy the project to Vercel.
+2. Install the Vercel CLI by running `npm install -g vercel`.
+3. Run `vercel login` to log in to your Vercel account.
+4. Run `vercel init` to initialize your project for deployment to Vercel.
+5. Follow the prompts to configure your project for deployment.
+6. Run `vercel` followed by `vercel --prod` to deploy your project to Vercel.
 
 ## API Documentation
 Full API documentation, including detailed descriptions of the endpoints and response formats, can be found on [RapidAPI](https://rapidapi.com/rahulbanerjee26/api/musclewiki).
