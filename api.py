@@ -1,5 +1,4 @@
-import json
-from flask import Flask, request
+from flask import Flask, request,json
 
 app = Flask(__name__)
 
@@ -13,9 +12,14 @@ with open('workout-attributes.json', 'r') as f:
 
 @app.route('/')
 def home():
-    return json.dumps({
-        "message": "Muscle Wiki API"
-    })
+    response = app.response_class(
+        response=json.dumps({
+            'message': "Muscle Wiki API"
+        }),
+        mimetype='application/json',
+        status=200
+    )
+    return response
 
 @app.route('/exercises')
 def get_exercises():
@@ -48,19 +52,33 @@ def get_exercises():
 
         filtered_exercises.append(exercise)
 
-    return json.dumps(filtered_exercises)
+    response = app.response_class(
+        response=json.dumps(filtered_exercises),
+        mimetype='application/json',
+        status=200
+    )
+    return response
 
 @app.route('/exercises/attributes')
 def get_exercise_attributes():
-    return json.dumps(workout_attributes)
+    response = app.response_class(
+        response=json.dumps(workout_attributes),
+        mimetype='application/json',
+        status=200
+    )
+    return response
 
 @app.route('/exercises/<int:exercise_id>')
 def get_exercise_by_id(exercise_id):
     # Find exercise by ID
     for exercise in workout_data:
         if exercise['id'] == exercise_id:
-            return json.dumps(exercise)
-
+            response = app.response_class(
+                        response=json.dumps(exercise),
+                        mimetype='application/json',
+                        status=200
+                    )
+            return response
     return json.dumps({'error': 'Exercise not found'})
 
 if __name__ == '__main__':
