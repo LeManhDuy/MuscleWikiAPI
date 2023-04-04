@@ -1,4 +1,4 @@
-# Workout API
+# Unofficial MuscleWiki API
 This is an API to retreive data from [musclewiki](https://musclewiki.com/). It was created by scraping data from [musclewiki](https://musclewiki.com/).
 
 The API provides information about exercises, including the name, category, target muscles,instructions for performing the exercise and a short video demonstration.
