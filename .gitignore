@@ -1,0 +1,4 @@
+.vercel
+.env
+venv
+.DS_Store
